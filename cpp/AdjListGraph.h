@@ -1,12 +1,14 @@
-class AdjMatrixGraph{
+#include <vector>
+
+class AdjListGraph{
 
 private:
 	int m_size;
-	bool** m_matrix;
+	std::vector<std::vector<int> >* m_list;
 
 public:
-	AdjMatrixGraph(int n_size);
-	~AdjMatrixGraph(); 
+	AdjListGraph(int n_size);
+	~AdjListGraph(); 
 	void addEdge(int u, int v);
 	void removeEdge(int u, int v);
 

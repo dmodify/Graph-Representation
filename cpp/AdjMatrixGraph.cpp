@@ -10,8 +10,10 @@ AdjMatrixGraph::AdjMatrixGraph(int n_size) {
 	}
 }
 
-int AdjMatrixGraph::size() {
-	return m_size;
+AdjMatrixGraph::~AdjMatrixGraph() {
+	for (int i=0; i<m_size; i++)
+		delete[] m_matrix[i];
+	delete[] m_matrix;
 }
 
 void AdjMatrixGraph::addEdge(int u, int v) {
@@ -24,22 +26,12 @@ void AdjMatrixGraph::removeEdge(int u, int v) {
 	m_matrix[v][u] = false;
 }
 
+int AdjMatrixGraph::size() {
+	return m_size;
+}
+
 bool AdjMatrixGraph::edgeExists(int u, int v) {
 	return m_matrix[u][v];
 }
 
-int AdjMatrixGraph::numberOfEdges() {
-	int count = 0;
-	for (int i=0; i<m_size; i++)
-		for (int j=0; j<m_size; j++)
-			if(m_matrix[i][j])
-				count++;
-	return count/2;
-}
 
-AdjMatrixGraph::~AdjMatrixGraph() {
-	for (int i=0; i<m_size; i++)
-		delete[] m_matrix[i];
-	delete[] m_matrix;
-
-}
