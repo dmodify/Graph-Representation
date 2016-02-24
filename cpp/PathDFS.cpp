@@ -23,10 +23,10 @@ int main() {
 	(*G).addEdge(3,4);
 	(*G).addEdge(1,4);
 	(*G).addEdge(2,4);
-	(*G).removeEdge(2,4);
+	//(*G).removeEdge(2,4);
 
-	std::cout << ((*G).edgeExists(2, 4) ? "true" : "false") << std::endl;
+	//std::cout << ((*G).edgeExists(2, 4) ? "true" : "false") << std::endl;
 
-	// bool seen[5] = {false};
-	// std::cout << (pathExistsByDFS(*G, 1, 2, seen) ? "true" : "false") << std::endl;
+	bool seen[5] = {false};
+	std::cout << (pathExistsByDFS(*G, 1, 2, seen) ? "true" : "false") << std::endl;
 }

@@ -1,4 +1,6 @@
+#include <algorithm> 
 #include "AdjListGraph.h"
+
 
 AdjListGraph::AdjListGraph(int n_size) {
 	this->m_size = n_size;
@@ -20,9 +22,9 @@ void AdjListGraph::addEdge(int u, int v) {
 }
 
 void AdjListGraph::removeEdge(int u, int v) {
-	std::vector<int>::iterator it_u = find((*m_list)[u].begin(), (*m_list)[u].end(), v);
+	std::vector<int>::iterator it_u = std::find((*m_list)[u].begin(), (*m_list)[u].end(), v);
 	(*m_list)[u].erase(it_u);
-	std::vector<int>::iterator it_v = find((*m_list)[v].begin(), (*m_list)[v].end(), u);
+	std::vector<int>::iterator it_v = std::find((*m_list)[v].begin(), (*m_list)[v].end(), u);
 	(*m_list)[v].erase(it_v);
 }
 
@@ -31,7 +33,7 @@ int AdjListGraph::size() {
 }
 
 bool AdjListGraph::edgeExists(int u, int v) {
-	std::vector<int>::iterator it = find((*m_list)[u].begin(), (*m_list)[u].end(), v);
+	std::vector<int>::iterator it = std::find((*m_list)[u].begin(), (*m_list)[u].end(), v);
 	if(it != (*m_list)[u].end())
 		return true;
 	else
